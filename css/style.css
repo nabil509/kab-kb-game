@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'DejaVuSansMono';
+    src: url('../font/DejaVuSansMono-Oblique.ttf') format('truetype');
+}
+
+body {
+    background: url('../img/background.jpg') no-repeat 100% 100%;
+}
+
+.letter {
+    font-weight: bold;
+    font-family: 'DejaVuSansMono';
+    color: #BD33A4;
+    font-size: 90px;
+    padding: 20px;
+}
+
+.content {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: 10px solid #ccc;
+    line-height: normal;
+    padding: 15px;
+    background-color: #fffcf9;
+}
+
+#timer {
+    width: 130px;
+    margin: 15px auto;
+    padding: 5px;
+    text-align: center;
+    font-family: 'DejaVuSansMono';
+    font-size: 16px;
+    font-weight: bold;
+    color: #00aced;
+    background-color: #fffcf9;
+}
+
+#canvas {
+    background: #000;
+    top: 0;
+    left: 0;
+    position: absolute;
+    cursor: crosshair;
+    opacity: 0.98;
+}

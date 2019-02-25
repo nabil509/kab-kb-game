@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="jquery/jquery-3.3.1.min.js"></script>
+
+<link type="text/css" rel="stylesheet" href="css/style.css">
+
+<title>Urar s unasiw</title>
+</head>
+<body>
+<canvas id="canvas" style="display: none;">Nesḥassef, canvas ur as-yezmir ara yiminig-a.</canvas>
+
+<div class="content">
+    <span class="letter a">A</span>
+    <span class="letter ɛ">Ɛ</span>
+    <span class="letter b">B</span>
+    <span class="letter c">C</span>
+    <span class="letter č">Č</span>
+    <span class="letter d">D</span>
+    <span class="letter ḍ">Ḍ</span>
+    <span class="letter e">E</span>
+    <span class="letter f">F</span>
+    <span class="letter g">G</span>
+    <span class="letter ǧ">Ǧ</span>
+    <span class="letter h">H</span>
+    <span class="letter ḥ">Ḥ</span>
+    <span class="letter i">I</span>
+    <span class="letter j">J</span>
+    <span class="letter k">K</span>
+    <span class="letter l">L</span>
+    <span class="letter m">M</span>
+    <span class="letter n">N</span>
+    <span class="letter o">O</span>
+    <span class="letter p">P</span>
+    <span class="letter ɣ">Ɣ</span>
+    <span class="letter q">Q</span>
+    <span class="letter r">R</span>
+    <span class="letter ṛ">Ṛ</span>
+    <span class="letter s">S</span>
+    <span class="letter ṣ">Ṣ</span>
+    <span class="letter t">T</span>
+    <span class="letter ṭ">Ṭ</span>
+    <span class="letter u">U</span>
+    <span class="letter v">V</span>
+    <span class="letter w">W</span>
+    <span class="letter x">X</span>
+    <span class="letter y">Y</span>
+    <span class="letter z">Z</span>
+    <span class="letter ẓ">Ẓ</span>
+</div>
+
+<div id="timer">00:00</div>
+
+<script type="text/javascript">
+    $(function() {
+        var time = 0, timer = null;
+        var letters = [], index = 0;
+
+        var startTimer = function() {
+            timer = setInterval(function() {
+                time++;
+
+                var min = Math.floor(time / 60);
+                var sec = time % 60;
+                $('#timer').text((min < 10 ? '0' + min : min) + ':' + (sec < 10 ? '0' + sec : sec)); 
+            }, 1000);
+        };
+
+        var stopTimer = function() {
+            time = 0;
+            if (timer) {
+                clearInterval(timer);
+            }
+
+            $('#timer').text('00:00');
+        };
+
+        var congratulate = function() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.font = '20px DejaVuSansMono';
+            ctx.fillText('BRAVO! TEFRIḌ-TT DEG ' + $('#timer').text() + '.', window.innerWidth / 2, 200);
+
+            stopTimer();
+
+            $('#canvas').css('display', 'block');
+        };
+
+        $(document).keyup(function(e) {
+            if (e.key === 'Escape') {
+                letters = [];
+                index = 0;
+                $('.letter').css('color', '#BD33A4');
+                $('#canvas').css('display', 'none');
+
+                stopTimer();
+                startTimer();
+            }
+        });
+
+        $(document).keypress(function(e) {
+            var letter = e.key.toLowerCase();
+
+            if (! letter.match(/[a-zɛčḍǧḥɣṛṣṭẓ]/i)) {
+                return;
+            }
+
+            if (! letters.includes(letter)) {
+                letters[index++] = letter;
+                $('.' + letter).css('color', 'red');
+
+                if (letters.length === 36) {
+                    setTimeout(congratulate, 1000);
+                }
+            }
+        });
+
+        startTimer();
+        fireworksLoop(); // Run hidden fireworks.
+    });
+</script>
+
+<script type="text/javascript" src="js/fireworks.js"></script>
+</body>
+</html>
