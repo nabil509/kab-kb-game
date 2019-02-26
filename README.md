@@ -9,7 +9,7 @@ You have just to type all leters of the Kabyle alphabet (36 letters extended alp
 ### Credits
 
 Some resources used is in this project are external.
-- Background Photo from [pngtree.com] (https://pngtree.com/freebackground/school-boards-background_362800.html).
+- Background Photo from [pngtree.com](https://pngtree.com/freebackground/school-boards-background_362800.html).
 - UTF-8 font from [fontspace.com](https://www.fontspace.com/dejavu/dejavu-sans-mono).
 - Special thanks for [Captain Anonymous](https://codepen.io/anon/pen/jdgaKd) for his JS fireworks script. 
 
