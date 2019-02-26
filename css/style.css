@@ -1,3 +1,11 @@
+/**
+ * This file is part of Kabyle Keyboard Game. See COPYING.md for license details.
+ *
+ * @author    Nabil SEMAOUNE <nabil509@gmail.com>
+ * @copyright Nabil SEMAOUNE
+ * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License (GPL v3)
+ */
+
 @font-face {
     font-family: 'DejaVuSansMono';
     src: url('../font/DejaVuSansMono-Oblique.ttf') format('truetype');

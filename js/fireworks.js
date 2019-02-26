@@ -80,7 +80,7 @@ function Firework(sx, sy, tx, ty) {
 
     // populate initial coordinate collection with the current coordinates
     while (this.coordinateCount--) {
-        this.coordinates.push([ this.x, this.y ]);
+        this.coordinates.push([this.x, this.y]);
     }
 
     this.angle = Math.atan2(ty - sy, tx - sx);
@@ -98,7 +98,7 @@ Firework.prototype.update = function(index) {
     this.coordinates.pop();
 
     // add current coordinates to the start of the array
-    this.coordinates.unshift([ this.x, this.y ]);
+    this.coordinates.unshift([this.x, this.y]);
 
     // cycle the circle target indicator radius
     if (this.targetRadius < 8) {
@@ -134,7 +134,7 @@ Firework.prototype.draw = function() {
     ctx.beginPath();
 
     // move to the last tracked coordinate in the set, then draw a line to the current x and y
-    ctx.moveTo(this.coordinates[ this.coordinates.length - 1][ 0 ], this.coordinates[ this.coordinates.length - 1][ 1 ]);
+    ctx.moveTo(this.coordinates[this.coordinates.length - 1][0], this.coordinates[this.coordinates.length - 1][1]);
     ctx.lineTo(this.x, this.y);
     ctx.strokeStyle = 'hsl(' + hue + ', 100%, ' + this.brightness + '%)';
     ctx.stroke();
@@ -155,7 +155,7 @@ function Particle(x, y) {
     this.coordinates = [];
     this.coordinateCount = 5;
     while (this.coordinateCount--) {
-        this.coordinates.push([ this.x, this.y ]);
+        this.coordinates.push([this.x, this.y]);
     }
 
     // set a random angle in all possible directions, in radians
@@ -183,7 +183,7 @@ Particle.prototype.update = function(index) {
     this.coordinates.pop();
 
     // add current coordinates to the start of the array
-    this.coordinates.unshift([ this.x, this.y ]);
+    this.coordinates.unshift([this.x, this.y]);
 
     // slow down the particle
     this.speed *= this.friction;
@@ -206,7 +206,7 @@ Particle.prototype.draw = function() {
     ctx. beginPath();
 
     // move to the last tracked coordinates in the set, then draw a line to the current x and y
-    ctx.moveTo(this.coordinates[ this.coordinates.length - 1 ][ 0 ], this.coordinates[ this.coordinates.length - 1 ][ 1 ]);
+    ctx.moveTo(this.coordinates[this.coordinates.length - 1][0], this.coordinates[this.coordinates.length - 1][1]);
     ctx.lineTo(this.x, this.y);
     ctx.strokeStyle = 'hsla(' + this.hue + ', 100%, ' + this.brightness + '%, ' + this.alpha + ')';
     ctx.stroke();
@@ -248,15 +248,15 @@ function fireworksLoop() {
     // loop over each firework, draw it, update it
     var i = fireworks.length;
     while (i--) {
-        fireworks[ i ].draw();
-        fireworks[ i ].update(i);
+        fireworks[i].draw();
+        fireworks[i].update(i);
     }
 
     // loop over each particle, draw it, update it
     var i = particles.length;
     while (i--) {
-        particles[ i ].draw();
-        particles[ i ].update(i);
+        particles[i].draw();
+        particles[i].update(i);
     }
 
     // launch fireworks automatically to random coordinates, when the mouse isn't down
