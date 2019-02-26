@@ -4,7 +4,7 @@ This simple game for children aims to help them to use a Kabyle keyboard. You ca
 
 ### How to play?
 
-You have just to type all leters of the Kabyle alphabet (36 letters extended alphabet). A beautiful surprise is waiting you.
+You have just to type all leters of the Kabyle alphabet (36 letters extended alphabet). A beautiful surprise is waiting you. Enter Escape to restart game.
 
 ### Credits
 
